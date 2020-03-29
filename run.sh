@@ -1,8 +1,21 @@
 #!/bin/bash
 
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
 DOCKER_NAME=marsians/base
 dockerUserName=marsians
+
+if [ -z "${MARS_PATH}" ]; then
+  echo "Aborting ... "
+  echo -e "\e[91mPlease set env variable MARS_PATH to absolute path of  your catkin ws \033[0m"
+  
+  exit 1
+fi
+
+hostPath="${MARS_PATH}"
+dockerPath=${hostPath/"$USER"/$dockerUserName}
+
 
 XSOCK=/tmp/.X11-unix
 XAUTH=/home/$USER/.Xauthority
@@ -26,6 +39,7 @@ docker run \
 --volume="/etc/localtime:/etc/localtime":ro \
 --env="XAUTHORITY=${XAUTH}" \
 --env="DISPLAY=${DISPLAY}" \
+-e MARS_PATH="${dockerPath}" \
 -u $dockerUserName \
 --net=host \
 --privileged \

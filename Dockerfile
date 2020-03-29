@@ -9,3 +9,8 @@ RUN bash /tmp/installers/install_ros.sh
 
 COPY installers/install_user.sh /tmp/installers/install_user.sh
 RUN bash /tmp/installers/install_user.sh
+
+#Entrypoint command 
+COPY ./entrypoint.sh /home
+ENTRYPOINT ["/home/entrypoint.sh"]
+CMD ["/bin/bash"]
