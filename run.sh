@@ -2,7 +2,7 @@
 
 
 DOCKER_NAME=marsians/base
-dockerUserName=root
+dockerUserName=marsians
 
 XSOCK=/tmp/.X11-unix
 XAUTH=/home/$USER/.Xauthority
