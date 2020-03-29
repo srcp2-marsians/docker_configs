@@ -14,20 +14,20 @@ if [ -z "${MARS_PATH}" ]; then
 fi
 
 hostPath="${MARS_PATH}"
-dockerPath=${hostPath/"$USER"/$dockerUserName}
+hostPathParent="$(dirname "$MARS_PATH")"
 
+dockerPath=${hostPath/"$USER"/$dockerUserName}
+dockerPathParent=${hostPathParent/"$USER"/$dockerUserName}
 
 XSOCK=/tmp/.X11-unix
 XAUTH=/home/$USER/.Xauthority
-SHARED_DIR=/home/$dockerUserName/shared_dir
-HOST_DIR=/home/$USER/shared_dir
+SHARED_DIR=$dockerPathParent
+HOST_DIR=$hostPathParent
 command="/bin/bash"
 
 # Create Shared Folder
-mkdir -p $HOST_DIR
-echo "Shared directory: ${HOST_DIR}"
-
-
+#mkdir -p $HOST_DIR
+#echo "Shared directory: ${HOST_DIR}"
 
 docker run \
 -it  --rm \
