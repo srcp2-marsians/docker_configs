@@ -18,6 +18,7 @@ fi
 
 echo "source /opt/ros/${ROS_DIST}/setup.bash" >> ~/.bashrc
 echo "source ${MARS_PATH%/}/devel/setup.bash" >> ~/.bashrc
+echo "PROMPT_DIRTRIM=1" >> ~/.bashrc
 
 source ~/.bashrc
 cd ~
