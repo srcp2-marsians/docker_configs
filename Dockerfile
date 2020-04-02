@@ -1,4 +1,4 @@
-FROM nvidia/cudagl:10.2-devel-ubuntu18.04
+FROM nvidia/cudagl:10.1-devel-ubuntu18.04
 MAINTAINER Paritosh Kelkar <paritoshskelkar@gmail.com>
 
 COPY installers/pre_install.sh /tmp/installers/pre_install.sh

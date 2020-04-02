@@ -3,7 +3,7 @@
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-DOCKER_NAME=marsians/base
+DOCKER_NAME=marsians/base:10.1
 dockerUserName=marsians
 
 if [ -z "${MARS_PATH}" ]; then
